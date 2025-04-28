@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:jp_app/src/features/order/presentation/main_screen.dart';
 
-class StartScreen extends StatelessWidget {
+class StartScreen extends StatefulWidget {
   const StartScreen({
     super.key,
   });
 
+  @override
+  State<StartScreen> createState() => _StartScreenState();
+}
+
+class _StartScreenState extends State<StartScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,9 +46,9 @@ class StartScreen extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: Padding(
-              padding: const EdgeInsets.only(top: 500),
+              padding: const EdgeInsets.only(top: 470),
               child: Card(
-                color: const Color.fromARGB(64, 0, 0, 0),
+                color: const Color.fromARGB(1, 48, 47, 47),
                 child: Padding(
                   padding: const EdgeInsets.all(32.0),
                   child: Column(
@@ -77,7 +83,13 @@ class StartScreen extends StatelessWidget {
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10),
                             )),
-                        onPressed: () {},
+                        onPressed: () {
+                          setState(() {
+                            Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => MainScreen(),
+                            ));
+                          });
+                        },
                         child: Text(
                           "Order now",
                           style: TextStyle(
