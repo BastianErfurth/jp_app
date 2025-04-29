@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:jp_app/src/features/order/domain/cake_bottomsheet.dart';
 import 'package:jp_app/src/features/order/domain/category_button.dart';
 import 'package:jp_app/src/features/order/domain/angi_burger_card.dart';
 import 'package:jp_app/src/features/order/domain/cake_card.dart';
 
-class MainScreen extends StatelessWidget {
+class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
 
+  @override
+  State<MainScreen> createState() => _MainScreenState();
+}
+
+class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -85,7 +91,53 @@ class MainScreen extends StatelessWidget {
                           fontWeight: FontWeight.bold),
                     ),
                   ),
-                  CakeCard()
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      spacing: 16,
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            setState(
+                              () {
+                                showModalBottomSheet(
+                                    context: context,
+                                    backgroundColor: Colors.transparent,
+                                    isScrollControlled: true,
+                                    builder: (BuildContext context) {
+                                      return CakeBottomsheet();
+                                    });
+                              },
+                            );
+                          },
+                          child: CakeCard(
+                              iceImage: "assets/images/cupkake_cat.png",
+                              iceName: "Mogli´s Cup",
+                              descriptionText: "Strawberry ice cream",
+                              cost: "8.99",
+                              likeNumber: "200"),
+                        ),
+                        CakeCard(
+                            iceImage: "assets/images/icecream.png",
+                            iceName: "Balu´s Cup",
+                            descriptionText: "Pistachio ice cream",
+                            cost: "8.99",
+                            likeNumber: "165"),
+                        CakeCard(
+                            iceImage: "assets/images/icecream_stick.png",
+                            iceName: "Smiling David",
+                            descriptionText: "Vanilla choc ice cream",
+                            cost: "3.99",
+                            likeNumber: "310"),
+                        CakeCard(
+                            iceImage: "assets/images/icecream_cone.png",
+                            iceName: "Kai in a Cone",
+                            descriptionText: "Carameled ice cream",
+                            cost: "3.99",
+                            likeNumber: "290"),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),

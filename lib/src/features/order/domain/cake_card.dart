@@ -1,8 +1,19 @@
 import 'package:flutter/material.dart';
 
 class CakeCard extends StatelessWidget {
+  final String iceImage;
+  final String iceName;
+  final String descriptionText;
+  final String cost;
+  final String likeNumber;
+
   const CakeCard({
     super.key,
+    required this.iceImage,
+    required this.iceName,
+    required this.descriptionText,
+    required this.cost,
+    required this.likeNumber,
   });
 
   @override
@@ -32,7 +43,7 @@ class CakeCard extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Image.asset(
-                  "assets/images/cupkake_cat.png",
+                  iceImage,
                   width: 100,
                   height: 100,
                   fit: BoxFit.cover,
@@ -41,14 +52,14 @@ class CakeCard extends StatelessWidget {
               Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    "Mogli´s Cup",
+                    iceName,
                     style: TextStyle(
                         color: Colors.white, fontWeight: FontWeight.w700),
                   )),
               Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  "Strawberry ice cream",
+                  descriptionText,
                   style: TextStyle(color: Colors.white),
                 ),
               ),
@@ -63,7 +74,7 @@ class CakeCard extends StatelessWidget {
                         color: Colors.white,
                       ),
                       Text(
-                        "8.99",
+                        cost,
                         style: TextStyle(color: Colors.white),
                       ),
                     ],
@@ -75,7 +86,7 @@ class CakeCard extends StatelessWidget {
                         color: Colors.white,
                       ),
                       Text(
-                        "200",
+                        likeNumber,
                         style: TextStyle(color: Colors.white),
                       ),
                     ],
