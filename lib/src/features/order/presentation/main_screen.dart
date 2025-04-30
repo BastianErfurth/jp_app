@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jp_app/src/features/order/domain/cake_bottomsheet.dart';
+import 'package:jp_app/src/features/order/presentation/cake_bottomsheet.dart';
 import 'package:jp_app/src/features/order/domain/category_button.dart';
 import 'package:jp_app/src/features/order/domain/angi_burger_card.dart';
 import 'package:jp_app/src/features/order/domain/cake_card.dart';
@@ -105,7 +105,12 @@ class _MainScreenState extends State<MainScreen> {
                                     backgroundColor: Colors.transparent,
                                     isScrollControlled: true,
                                     builder: (BuildContext context) {
-                                      return CakeBottomsheet();
+                                      return CakeBottomsheet(
+                                          iceImage:
+                                              "assets/images/cupkake_cat.png",
+                                          likenumber: 200,
+                                          iceName: "Mogli´s Cup",
+                                          price: 8.99);
                                     });
                               },
                             );
@@ -117,24 +122,84 @@ class _MainScreenState extends State<MainScreen> {
                               cost: "8.99",
                               likeNumber: "200"),
                         ),
-                        CakeCard(
-                            iceImage: "assets/images/icecream.png",
-                            iceName: "Balu´s Cup",
-                            descriptionText: "Pistachio ice cream",
-                            cost: "8.99",
-                            likeNumber: "165"),
-                        CakeCard(
-                            iceImage: "assets/images/icecream_stick.png",
-                            iceName: "Smiling David",
-                            descriptionText: "Vanilla choc ice cream",
-                            cost: "3.99",
-                            likeNumber: "310"),
-                        CakeCard(
-                            iceImage: "assets/images/icecream_cone.png",
-                            iceName: "Kai in a Cone",
-                            descriptionText: "Carameled ice cream",
-                            cost: "3.99",
-                            likeNumber: "290"),
+                        GestureDetector(
+                          onTap: () {
+                            setState(
+                              () {
+                                showModalBottomSheet(
+                                    context: context,
+                                    backgroundColor: Colors.transparent,
+                                    isScrollControlled: true,
+                                    builder: (BuildContext context) {
+                                      return CakeBottomsheet(
+                                          iceImage:
+                                              "assets/images/icecream.png",
+                                          likenumber: 165,
+                                          iceName: "Balu´s Cup",
+                                          price: 8.99);
+                                    });
+                              },
+                            );
+                          },
+                          child: CakeCard(
+                              iceImage: "assets/images/icecream.png",
+                              iceName: "Balu´s Cup",
+                              descriptionText: "Pistachio ice cream",
+                              cost: "8.99",
+                              likeNumber: "165"),
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            setState(
+                              () {
+                                showModalBottomSheet(
+                                    context: context,
+                                    backgroundColor: Colors.transparent,
+                                    isScrollControlled: true,
+                                    builder: (BuildContext context) {
+                                      return CakeBottomsheet(
+                                          iceImage:
+                                              "assets/images/icecream_stick.png",
+                                          likenumber: 310,
+                                          iceName: "Mogli´s Cup",
+                                          price: 3.99);
+                                    });
+                              },
+                            );
+                          },
+                          child: CakeCard(
+                              iceImage: "assets/images/icecream_stick.png",
+                              iceName: "Smiling David",
+                              descriptionText: "Vanilla choc ice cream",
+                              cost: "3.99",
+                              likeNumber: "310"),
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            setState(
+                              () {
+                                showModalBottomSheet(
+                                    context: context,
+                                    backgroundColor: Colors.transparent,
+                                    isScrollControlled: true,
+                                    builder: (BuildContext context) {
+                                      return CakeBottomsheet(
+                                          iceImage:
+                                              "assets/images/icecream_cone.png",
+                                          likenumber: 290,
+                                          iceName: "Kai in a Cone",
+                                          price: 3.99);
+                                    });
+                              },
+                            );
+                          },
+                          child: CakeCard(
+                              iceImage: "assets/images/icecream_cone.png",
+                              iceName: "Kai in a Cone",
+                              descriptionText: "Carameled ice cream",
+                              cost: "3.99",
+                              likeNumber: "290"),
+                        ),
                       ],
                     ),
                   ),

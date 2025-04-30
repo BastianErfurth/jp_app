@@ -7,6 +7,7 @@ class SizeContainer extends StatelessWidget {
   final double radiusBottomLeft;
   final double radiusBottomRight;
   final String text;
+  final Color textColor;
   const SizeContainer({
     super.key,
     required this.containerColor,
@@ -15,6 +16,7 @@ class SizeContainer extends StatelessWidget {
     required this.radiusBottomLeft,
     required this.radiusBottomRight,
     required this.text,
+    required this.textColor,
   });
 
   @override
@@ -33,7 +35,7 @@ class SizeContainer extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Text(
           text,
-          style: TextStyle(color: const Color.fromARGB(255, 211, 209, 209)),
+          style: TextStyle(color: textColor),
         ),
       ),
     );

@@ -2,7 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:jp_app/src/features/order/domain/size_container.dart';
 
 class CakeBottomsheet extends StatelessWidget {
-  const CakeBottomsheet({super.key});
+  final String iceImage;
+  final int likenumber;
+  final String iceName;
+  final double price;
+  const CakeBottomsheet(
+      {super.key,
+      required this.iceImage,
+      required this.likenumber,
+      required this.iceName,
+      required this.price});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +28,7 @@ class CakeBottomsheet extends StatelessWidget {
           ),
           Column(
             children: [
-              Image.asset("assets/images/cupkake_cat.png"),
+              Image.asset("$iceImage"),
               SizedBox(height: 280),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -32,12 +41,14 @@ class CakeBottomsheet extends StatelessWidget {
                           radiusTopRight: 0,
                           radiusBottomLeft: 8,
                           radiusBottomRight: 0,
+                          textColor: Colors.grey,
                           text: "Small"),
                       SizeContainer(
                           containerColor: Color.fromARGB(255, 64, 63, 63),
                           radiusTopLeft: 0,
                           radiusTopRight: 0,
                           radiusBottomLeft: 0,
+                          textColor: Colors.grey,
                           radiusBottomRight: 0,
                           text: "Medium"),
                       SizeContainer(
@@ -46,6 +57,7 @@ class CakeBottomsheet extends StatelessWidget {
                           radiusTopRight: 8,
                           radiusBottomLeft: 8,
                           radiusBottomRight: 8,
+                          textColor: Colors.white,
                           text: "Large"),
                     ],
                   ),
@@ -84,7 +96,7 @@ class CakeBottomsheet extends StatelessWidget {
                       )),
                   onPressed: () {},
                   child: Text(
-                    "Add to order € 8.99",
+                    "Add to order € $price",
                     style: TextStyle(fontSize: 20),
                   ),
                 ),
@@ -94,7 +106,7 @@ class CakeBottomsheet extends StatelessWidget {
           Center(
             child: SizedBox(
               width: 350,
-              height: 280,
+              height: 320,
               child: Container(
                 decoration: BoxDecoration(
                   color: Colors.black.withAlpha(50),
@@ -113,7 +125,7 @@ class CakeBottomsheet extends StatelessWidget {
                             color: const Color.fromARGB(255, 222, 220, 220),
                           ),
                           Text(
-                            "200",
+                            "$likenumber",
                             style: TextStyle(
                                 color: const Color.fromARGB(255, 222, 220, 220),
                                 fontSize: 18),
@@ -121,7 +133,7 @@ class CakeBottomsheet extends StatelessWidget {
                         ],
                       ),
                       Text(
-                        "Mogli´s Cup",
+                        iceName,
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 24,
@@ -137,7 +149,7 @@ class CakeBottomsheet extends StatelessWidget {
                         height: 16,
                       ),
                       Text(
-                        "€ 8.99",
+                        "€ $price",
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 24,
@@ -146,6 +158,70 @@ class CakeBottomsheet extends StatelessWidget {
                       Divider(
                         color: const Color.fromARGB(255, 187, 185, 185),
                       ),
+                      Column(
+                        children: [
+                          Row(
+                            children: [
+                              Text(
+                                "Incredients",
+                                style: TextStyle(color: Colors.white),
+                              ),
+                              SizedBox(width: 10),
+                              Text(
+                                "Reviews",
+                                style: TextStyle(color: Colors.white),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 8),
+                          Row(
+                            children: [
+                              Row(
+                                spacing: 8,
+                                children: [
+                                  Image.asset(
+                                    "assets/images/Gluten 1.png",
+                                    width: 20,
+                                    height: 20,
+                                    color: Colors.white,
+                                  ),
+                                  Image.asset(
+                                    "assets/images/Sugar.png",
+                                    width: 20,
+                                    height: 20,
+                                    color: Colors.white,
+                                  ),
+                                  Image.asset(
+                                    "assets/images/LowFat.png",
+                                    width: 20,
+                                    height: 20,
+                                    color: Colors.white,
+                                  ),
+                                  Image.asset(
+                                    "assets/images/Kcal.png",
+                                    width: 20,
+                                    height: 20,
+                                    color: Colors.white,
+                                  ),
+                                ],
+                              ),
+                              SizedBox(width: 75),
+                              Row(
+                                children: [
+                                  Icon(Icons.star, color: Colors.white),
+                                  Icon(Icons.star, color: Colors.white),
+                                  Icon(Icons.star, color: Colors.white),
+                                  Icon(Icons.star, color: Colors.white),
+                                  Icon(Icons.star_border, color: Colors.white),
+                                  SizedBox(width: 8),
+                                  Text("4.0",
+                                      style: TextStyle(color: Colors.white)),
+                                ],
+                              )
+                            ],
+                          )
+                        ],
+                      )
                     ],
                   ),
                 ),
