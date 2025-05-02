@@ -24,7 +24,7 @@ class CakeCard extends StatelessWidget {
         decoration: BoxDecoration(
             gradient: LinearGradient(
               colors: [
-                const Color.fromRGBO(255, 255, 255, 0),
+                const Color.fromRGBO(255, 255, 255, 0.2),
                 const Color.fromRGBO(144, 140, 245, 1),
                 const Color.fromRGBO(142, 91, 234, 1),
               ],
@@ -33,7 +33,7 @@ class CakeCard extends StatelessWidget {
             ),
             borderRadius: BorderRadius.circular(16),
             border: Border.all(
-              color: const Color.fromARGB(255, 180, 178, 178),
+              color: const Color.fromARGB(255, 61, 60, 60),
               width: 1,
             )),
         child: Padding(
