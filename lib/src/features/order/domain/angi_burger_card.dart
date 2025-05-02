@@ -53,11 +53,14 @@ class AngiBurgerCard extends StatelessWidget {
                 alignment: Alignment.centerLeft,
                 child: Row(
                   children: [
-                    Icon(
-                      Icons.attach_money,
-                      color: Colors.white,
-                      size: 32,
+                    Text(
+                      "₳",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 24,
+                          fontWeight: FontWeight.w700),
                     ),
+                    SizedBox(width: 8),
                     Text(
                       "13.99",
                       style: TextStyle(

@@ -69,9 +69,9 @@ class CakeCard extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      Icon(
-                        Icons.attach_money,
-                        color: Colors.white,
+                      Text(
+                        "₳",
+                        style: TextStyle(color: Colors.white, fontSize: 16),
                       ),
                       Text(
                         cost,

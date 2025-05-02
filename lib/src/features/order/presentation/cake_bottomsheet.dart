@@ -28,7 +28,7 @@ class CakeBottomsheet extends StatelessWidget {
           ),
           Column(
             children: [
-              Image.asset("$iceImage"),
+              Image.asset(iceImage),
               SizedBox(height: 280),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
